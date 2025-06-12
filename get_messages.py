@@ -63,4 +63,4 @@ async def on_message(message):
 
     
 
-client.run("some token probably")
+client.run("some tokens probably")
