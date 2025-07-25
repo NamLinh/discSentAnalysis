@@ -34,22 +34,23 @@ async def on_message(message):
         
     if message.content.startswith("collect_text"):
         
-        with open("messages.csv", "w", newline="", encoding="utf-8") as f:
+        with open("messages2.csv", "w", newline="", encoding="utf-8") as f:
             
             writer = csv.writer(f)
             writer.writerow(["timestamp", "guild", "channel", "author", "content"])
             
             for guild in client.guilds:
                 for channel in guild.text_channels:
-                    await message.channel.send(f"Working on {channel} now.")
+                    await message.channel.send(f"hi {channel} :3")
                     try:
                         async for message in channel.history(limit=None, oldest_first=True):
-                            print(f"Working on {str(message.content.replace("\n", " ").strip())} now")
+                            print(f"hi team im reading {str(message.content.replace("\n", " ").strip())} now")
                             # all_messages.append({
                             writer.writerow([
                                 message.created_at,
                                 guild.name,
                                 channel.name,
+                                message.author,
                                 message.content.replace("\n", " ").strip()
                             ])
                     except discord.Forbidden:
@@ -62,5 +63,5 @@ async def on_message(message):
             #     print(f"[{msg.channel}]) {msg.author}: {msg.content}")
 
     
-
-client.run("some tokens probably")
+my_disc_key= "" 
+client.run(my_disc_key)
